@@ -1,0 +1,62 @@
+﻿@page
+@using StLawRestaurant.Models;
+@model StLawRestaurant.Pages.Customer.Cart.IndexModel
+
+@{
+	IEnumerable<ShoppingCart> shoppingCartList = Model.shoppingCartLisst;
+}
+
+@if (shoppingCartList == null)
+{
+	<div class="container">
+		<p>There are no items here. Please add items to shopping cart</p>
+	</div>
+}
+else
+{
+	<form method="post">
+	<div class="container">
+		<div class="col-lg-8 m-auto">
+
+			<div class="row bg-dark">
+				<div class="col">
+					<h2 class="text-light">Shopping cart</h2>
+				</div>
+				<div class="col text-end text-light">
+					<a href="./Home/Index">CONTINUE SHOPPING</a>
+				</div>
+			</div>
+			<div class="row">
+				@foreach(var item in shoppingCartList)
+				{
+					<div class="row">
+						<div class="col-3">
+							<img src="@item.MenuItem.MenuImage" class="img-thumbnail">
+						</div>
+						<div class="col-4">
+							<h2>@item.MenuItem.MenuName</h2>
+						</div>
+						<div class="col-2 d-flex">
+							<p class="fw-bold text-danger"><del>N</del>@item.MenuItem.Price X @item.Count</p>
+						</div>
+						<div class="col-2">
+								<button type="submit" asp-page-handler="plus" asp-route-cartId="@item.Id" class="btn border bg-success text-light"><i class="bi bi-plus"></i></button>
+									<button type="submit" asp-page-handler="minus" asp-route-cartId="@item.Id" class="btn border bg-dark text-light"><i class="bi bi-dash"></i></button>
+						</div>
+						<div class="col-1">
+							<button type="submit" asp-page-handler="delete" asp-route-cartId="@item.Id" class="btn text-danger border-dark"><i class="bi bi-trash-fill"></i></button>
+						</div>
+					</div>
+				}
+			</div>
+			<div>
+				<h4 class="text-end"><del>N</del> @Model.CartTotal</h4>
+			</div>
+			<div class="col text-end">
+				<button type="submit" class="btn btn-success w-50" asp-page-handler="Order">Place Order</button>
+			</div>
+		</div>
+	</div>
+
+	</form>
+}

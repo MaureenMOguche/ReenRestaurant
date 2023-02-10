@@ -1,0 +1,51 @@
+﻿@page
+@model StLawRestaurant.Pages.Customer.Home.DetailsModel
+
+
+<div class="container">
+	<form method="post">
+		<input asp-for="ShoppingCart.MenuItemId" hidden />
+		<input asp-for="ShoppingCart.ApplicationUserId" hidden />
+
+	<div class="col-lg-6 m-auto p-5 my-shadow">
+		<div class="row">
+			<div class="col">
+				<h2>@Model.ShoppingCart.MenuItem.MenuName</h2>
+			</div>
+			<div class="col">
+				<h2 class="text-danger text-end"><del>N</del>@Model.ShoppingCart.MenuItem.Price</h2>
+			</div>
+		</div>
+		<div>
+			<img src="@Model.ShoppingCart.MenuItem.MenuImage" class="img-fluid"/>
+		</div>
+		<div class="pt-2">
+			<p>@Model.ShoppingCart.MenuItem.Description</p>
+		</div>
+
+		
+			<div class="form-floating pb-3">
+				<input class="form-control" asp-for="@Model.ShoppingCart.Count" aria-required="true"/>
+				<label class="form-label" asp-for="@Model.ShoppingCart.Count"></label>
+				<span asp-validation-for="@Model.ShoppingCart.Count" class="text-danger"></span>
+			</div>
+	 
+		<div class="row">
+			<div class="col">
+				<a class="btn btn-secondary w-100" asp-page="Index">Back to List</a>
+			</div>
+			<div class="col">
+				<button type="submit" class="btn btn-success w-100"><i class="bi bi-cart-plus"></i> Add To Cart</button>
+			</div>
+		</div>
+	</div>
+	</form>
+</div>
+
+
+
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

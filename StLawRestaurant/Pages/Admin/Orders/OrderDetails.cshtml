@@ -1,0 +1,25 @@
+﻿@page
+@model StLawRestaurant.Pages.Admin.Orders.OrderDetailsModel
+
+<div class="col-lg-8 m-auto">
+	<table>
+		@*<div class="row">
+			<h3>Order details for @Model.orderDetailsList. </h3>
+		</div>*@
+	@foreach (var item in Model.orderDetailsList)
+	{
+		<div class="row pt-3">
+			<div class="col-3">
+				<img src="@item.MenuItem.MenuImage" class="img-thumbnail">
+			</div>
+			<div class="col">
+				<h3>@item.MenuItem.MenuName</h3>
+				<p>@item.MenuItem.Price * @item.Count</p>
+			</div>
+			<div class="col-3">
+				<p>Total amount: @(item.MenuItem.Price * item.Count)</p>
+			</div>
+		</div>
+	}
+	</table>
+</div>

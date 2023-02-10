@@ -1,0 +1,93 @@
+﻿@page
+@model StLawRestaurant.Pages.Customer.Cart.SummaryModel
+
+
+<div class="container">
+	<div class="col-lg-10 m-auto">
+		<div class="row">
+			<div class="col bg-dark P-2">
+				<h4 class="text-light">ORDER SUMMARY</h4>
+			</div>
+		</div>
+		<div class="row pt-3 pb-3" style="background-color: lightgray">
+			<div class="col">
+				<h5 class="text-info">PICKUP DETAILS</h5>
+				<form method="post">
+					<div class="row mt-2">
+						<div class="col-3">
+							<label class="form-label">Name</label>
+						</div>
+						<div class="col-9">
+							<input class="form-control" />
+						</div>
+					</div>
+
+					<div class="row mt-2">
+						<div class="col-3">
+							<label class="form-label">Phone Number</label>
+						</div>
+						<div class="col-9">
+							<input class="form-control" />
+						</div>
+					</div>
+
+					<div class="row mt-2">
+						<div class="col-3">
+							<label class="form-label">Pictup Date</label>
+						</div>
+						<div class="col-9">
+							<input class="form-control" />
+						</div>
+					</div>
+
+					<div class="row mt-2">
+						<div class="col-3">
+							<label class="form-label">Pickup Time</label>
+						</div>
+						<div class="col-9">
+							<input class="form-control" />
+						</div>
+					</div>
+
+					<div class="row mt-2">
+						<div class="col-3">
+							<label class="form-label">Aditional Instructions:</label>
+						</div>
+						<div class="col-9">
+							<textarea rows="3" class="form-control"></textarea>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="col">
+				<h3>ORDER SUMMARY</h3>
+				<div class="col border-2">
+					<div class="row">
+						<div class="col">
+							<h6>name</h6>
+						</div>
+						<div class="col">
+							<p>price * count</p>
+						</div>
+					</div>
+					<div class="col">
+						<p>quantity: count</p>
+					</div>
+				</div>
+				<div class="row border-2">
+					<div class="col">
+						<p class="text-info">Total (<del>N</del>)</p>
+					</div>
+					<div class="col">
+						<p class="text-info">amount</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row bg-secondary p-1">
+			<div class="col text-end">
+				<button class="btn btn-success w-25">PLACE ORDER</button>
+			</div>
+		</div>
+	</div>
+</div>

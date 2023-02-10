@@ -1,0 +1,64 @@
+﻿@page 
+@model StLawRestaurant.Pages.Admin.Menu.DeleteModel
+
+
+<div class="container p-3">
+	<div class="col-lg-12 m-auto">
+		<form method="post" enctype="multipart/form-data">
+			<input asp-for="menuItem.Id" hidden />
+			<div class="row">
+			<div class="my-shadow col-9 pt-3 pb-3 ps-5 pe-5 mt-4">
+				<div class="row pb-2 mt-4">
+					<h3 class="text-primary pl-3">Are you sure you want to delete this Menu?</h3>
+					<hr />
+				</div>
+				@*<div asp-validation-summary="All"></div>*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="menuItem.MenuName"></label>
+					<input class="form-control" asp-for="menuItem.MenuName" disabled >
+					<span asp-validation-for="menuItem.MenuName" class="text-danger sm-fnt"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="menuItem.Price"></label>
+					<input class="form-control" asp-for="menuItem.Price" disabled>
+					<span asp-validation-for="menuItem.Price" class="text-danger sm-fnt"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="menuItem.Description"></label>
+					<textarea class="form-control" asp-for="menuItem.Description" rows="3" disabled></textarea>
+					<span asp-validation-for="menuItem.Description" class="text-danger sm-fnt"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="menuItem.MenuImage"></label>
+					<input class="form-control" asp-for="menuItem.MenuImage" type="file" name="menuImage" id="menu-image" disabled>
+				</div>
+
+				<div class="mb-3">
+				<button type="submit" class="btn btn-primary" asp-route-id="@Model.menuItem.Id">Delete</button>
+				<a asp-page="Index" class="btn btn-secondary">Back to List</a>
+			</div>
+
+			</div>	
+
+			<div class="col-3 mt-5">
+				@if(Model.menuItem.Id != 0)
+				{
+					<img src="@Model.menuItem.MenuImage" class="img-fluid">
+				}
+			</div>
+
+
+			</div>
+
+		</form>
+	</div>
+</div>
+
+
+@section Scripts
+	{
+		<partial name="_ValidationScriptsPartial" />
+}

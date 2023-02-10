@@ -1,0 +1,32 @@
+﻿@page
+@model StLawRestaurant.Pages.Admin.Orders.IndexModel
+
+<form method="post">
+<div class="container">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>ORDER ID</th>
+				<th>EMAIL</th>
+				<th>ORDER TOTAL</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(var item in Model.orderHeaders)
+			{
+				<tr>
+					<td>@item.Id</td>
+					<td>@item.ApplicationUser.Email</td>
+					<td>@item.OrderTotal</td>
+					<td>
+						<a class="btn btn-dark" asp-page="OrderDetails" asp-route-orderId="@item.Id"><i class="bi bi-eye"></i> Details</a>
+						<button type="submit" class="btn btn-danger" asp-page-handler="OrderDelete" asp-route-orderId="@item.Id"><i class="bi bi-trash-fill"></i> Delete</button>
+					</td>
+
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+</form>

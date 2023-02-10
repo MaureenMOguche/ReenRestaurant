@@ -1,0 +1,83 @@
+﻿@page
+@model StLawRestaurant.Pages.Customer.Home.IndexModel
+
+<div class="hero-container">
+	<h1>Welcome to StLaw Restaurant</h1>
+	<p>Your home of delicious meals</p>
+</div>
+
+<div class="container pb-5">
+	<h1 class="text-center mb-4">Menu Items</h1>
+	<hr />
+	<div class="row g-4">
+		@foreach (var item in Model.MenuItemList)
+		{
+			<div class="col-lg-3">
+				<div class="menu-item my-shadow">
+					<div class="image-container">
+						<img src="@item.MenuImage">
+					</div>
+					<div class="row p-3">
+						<div class="col">
+							<h4>@item.MenuName</h4>
+						</div>
+
+						<div class="price">
+							<h6><del>N</del>@item.Price</h6>
+						</div>
+						
+					</div>
+									
+
+					<div class="p-3 text-center">
+						<a class="btn btn-primary w-50" asp-page="Details" asp-route-id="@item.Id">View Details</a>
+					</div>
+				@*<div class="p-3" style="width: 100px">
+						<input asp-for="Count" class="form-control">
+					</div>*@
+					@*<div class="cart-buttons">
+							<a class="add">
+								<i class="bi bi-cart-plus"></i>
+							</a>
+							
+							<p class="count">0</p>
+
+							<a class="subtract">
+								<i class="bi bi-dash"></i>
+							</a>
+					</div>*@
+				</div>
+			</div>
+		}
+	</div>
+</div>
+
+
+@section Scripts{
+	<script>
+
+		let addbtns = document.querySelector(".add");
+		let addbtns = document.querySelector(".add");
+
+		function AddNumber(){
+			var num = document.getElementById("count");
+			let result = Number(num.innerText) + 1;
+
+			num.innerText  = result;
+		}
+
+			function ReduceNumber(){
+				var num = document.getElementById("count");
+				let result = Number(num.innerText);
+
+				if (result === 0){
+					result = 0;
+				}
+				else{
+					result = result - 1;
+				}
+
+				num.innerText  = result;
+			}
+	</script>
+}

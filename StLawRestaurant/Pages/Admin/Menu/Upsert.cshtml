@@ -1,0 +1,86 @@
+﻿@page
+@model StLawRestaurant.Pages.Admin.Menu.UpsertModel
+
+
+<div class="container p-3">
+	<div class="col-lg-12 m-auto">
+		<form method="post" enctype="multipart/form-data">
+			<input asp-for="menuItem.Id" hidden />
+			<div class="row">
+			<div class="my-shadow col-9 pt-3 pb-3 ps-5 pe-5 mt-4">
+				<div class="row pb-2 mt-4">
+					<h2 class="text-primary pl-3">@(Model.menuItem.Id != 0 ? "Edit" : "Create") Menu</h2>
+					<hr />
+				</div>
+				<div asp-validation-summary="All"></div>
+				<div class="mb-3">
+					<label class="form-label" asp-for="menuItem.MenuName"></label>
+					<input class="form-control" asp-for="menuItem.MenuName">
+					<span asp-validation-for="menuItem.MenuName" class="text-danger sm-fnt"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="menuItem.Price"></label>
+					<input class="form-control" asp-for="menuItem.Price">
+					<span asp-validation-for="menuItem.Price" class="text-danger sm-fnt"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="menuItem.Description"></label>
+					<textarea class="form-control" asp-for="menuItem.Description" rows="3"></textarea>
+					<span asp-validation-for="menuItem.Description" class="text-danger sm-fnt"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="menuItem.MenuImage"></label>
+					<input class="form-control" asp-for="menuItem.MenuImage" type="file" name="menuImage" id="menu-image">
+				</div>
+
+				<div class="mb-3">
+						@if (Model.menuItem.Id != 0)
+						{
+							<button type="submit" class="btn btn-primary">Update</button>
+						}
+						else
+						{
+							<button type="submit" class="btn btn-primary" onclick="ValidateImage()">Create</button>
+
+						}
+						<a asp-page="Index" class="btn btn-secondary">Back to List</a>
+			</div>
+
+			</div>	
+
+			<div class="col-3 mt-5">
+				@if(Model.menuItem.Id != 0)
+				{
+					<img src="@Model.menuItem.MenuImage" class="img-fluid">
+				}
+			</div>
+
+
+			</div>
+
+		</form>
+	</div>
+</div>
+
+
+@section Scripts
+	{
+		<partial name="_ValidationScriptsPartial" />
+			<script>
+			function ValidateImage(){
+					if (document.getElementById("menu-image").value === "")
+				{
+						Swal.fire({
+							  icon: 'error',
+							  title: 'Oops...',
+							  text: 'Please select an image!',
+							})
+						return false;
+				}
+				return true;
+			}
+		</script>
+}

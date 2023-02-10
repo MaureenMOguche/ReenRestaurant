@@ -1,0 +1,106 @@
+*{
+    box-sizing: border-box;
+}
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.hero-container {
+    width: 100%;
+    height: 50vh;
+    background-image: linear-gradient(rgba(0,0,0, .7), rgba(0,0,0, .7)), url("/images/pageImages/about.jpg");
+    background-size: cover;
+    margin-bottom: 50px;
+    color: white;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: center;
+}
+
+.menu-container {
+    width: 100%;
+    height: 20vh;
+    background-image: url("/images/pageImages/featured1.jpg");
+    background-size: cover;
+    background-position: -25%;
+    margin-bottom: 50px;
+}
+
+.my-shadow{
+    box-shadow: 0 0 10px black;
+}
+
+.menu-item{
+    position: relative;
+}
+
+.image-container {
+    height: 200px;
+    max-height: 300px;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+.image-container img{
+    height: 100%;
+    width: auto;
+}
+
+.price h6 {
+    color: firebrick;
+}
+
+.admin-nav{
+    list-style:none;
+}
+
+.nav-links:hover {
+    color: darkblue;
+}
+#register {
+    background-color: black;
+    margin: 0 6px;
+    padding: 6px 20px 6px 20px;
+    border-radius: 6px;
+}
+.cart-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.cart-buttons i {
+    padding: 10px;
+    box-shadow: 0 0 4px;
+    margin: 0 15px;
+}
+.cart-buttons p{
+    padding: 10px 20px;
+    background-color:firebrick;
+    color: white;
+}
+
+.login-bg {
+    background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("/images/pageImages/strawberry2.jpg");
+    background-size: cover;
+    padding-bottom: 40px;
+}
+.login-form-bg{
+    background-color:white;
+}
